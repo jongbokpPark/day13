@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #wrapper {
+        width: 100%;
+        height: 1000px;
+        background: yellow;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      aside {
+        width: 15%;
+        height: 100%;
+        background: aqua;
+      }
+      section {
+        width: 85%;
+        height: 100%;
+        background: aquamarine;
+      }
+      #view-mode {
+        width: 100%;
+        height: 50px;
+        background: bisque;
+        text-align: center;
+        line-height: 50px;
+      }
+      #list {
+        width: 100%;
+        height: calc(100% - 50px);
+        background: red;
+      }
+      #content {
+        width: 100%;
+        height: calc(100% - 50px);
+        background: blue;
+      }
+    </style>
+
+    <script>
+      let content;
+
+      function initMap() {
+        content = document.getElementById("content");
+
+        // 구글맵 객체를 메모리에 올리기
+        let map = new google.maps.Map(content, {
+          center: new google.maps.LatLng(37.61911, 126.7191),
+          zoom: 18,
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <div id="wrapper">
+      <aside></aside>
+
+      <section>
+        <div id="view-mode">
+          <button>표로보기</button>
+          <button>지도보기</button>
+        </div>
+        <div id="list"></div>
+        <div id="content"></div>
+      </section>
+    </div>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVrzv9ZSSkxqjqhzFPsneQcwS19rmiiMU&callback=initMap"></script>
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap"></script> -->
+  </body>
+</html>
